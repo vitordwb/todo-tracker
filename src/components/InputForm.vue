@@ -1,8 +1,14 @@
 <template>
   <div class="box">
     <div class="columns">
-      <div class="columns is-8" role="form" aria-label="Formulário para criaçao de uma nova tarefa">
-        <input type="text" class="input" placeholder="Qual tarefa deseja iniciar?">
+      <div class="columns is-8"
+           role="form"
+           aria-label="Formulário para criaçao de uma nova tarefa"
+      >
+        <input type="text"
+               class="input"
+               placeholder="Qual tarefa deseja iniciar?"
+        />
       </div>
       <div class="column">
         <section>

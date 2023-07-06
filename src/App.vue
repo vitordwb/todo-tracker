@@ -1,7 +1,7 @@
 <template>
   <main class="columns is-gapless is-multiline">
     <div class="colum is-one-quarter">
-      <BarraLateral />
+      <SideBar />
     </div>
     <div class="colum is-three-quarter">
       <InputForm />
@@ -11,14 +11,14 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import BarraLateral from '@/components/BarraLateral.vue'
+import SideBar from '@/components/SideBar.vue'
 import InputForm from '@/components/InputForm.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
     InputForm,
-    BarraLateral
+    SideBar
   },
 });
 </script>
