@@ -1,7 +1,7 @@
 <template>
   <main class="columns is-gapless is-multiline">
     <div class="colum is-one-quarter">
-
+    <BarraLateral />
     </div>
     <div class="colum is-three-quarter">
 
@@ -11,9 +11,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import BarraLateral from '@/components/BarraLateral.vue'
 
 export default defineComponent({
   name: 'App',
+  components: {
+    BarraLateral
+  },
 });
 </script>
 
