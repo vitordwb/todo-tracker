@@ -14,7 +14,7 @@
         <div
             class="is-flex is-align-items-center is-justify-content-space-between"
         >
-          <StopwatchTimer />
+          <StopwatchTimer :timeInSeconds="timeInSeconds"/>
           <button class="button" @click="start">
           <span class="icon">
             <i class="fas fa-play"></i>

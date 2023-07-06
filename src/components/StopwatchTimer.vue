@@ -5,7 +5,9 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'StopwatchTimer',
   props: {
     timeInSeconds: {
@@ -18,5 +20,5 @@ export default {
       return new Date(this.timeInSeconds * 1000).toISOString().substr(11, 8);
     }
   },
-}
+})
 </script>
