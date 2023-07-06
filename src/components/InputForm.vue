@@ -14,9 +14,7 @@
         <div
             class="is-flex is-align-items-center is-justify-content-space-between"
         >
-          <section>
-            <strong>{{ timeSpent }}</strong>
-          </section>
+          <StopwatchTimer />
           <button class="button" @click="start">
           <span class="icon">
             <i class="fas fa-play"></i>
@@ -37,18 +35,17 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import StopwatchTimer from '@/components/StopwatchTimer.vue'
 
 export default defineComponent({
   name: 'InputForm',
+  components: {
+    StopwatchTimer
+  },
   data() {
     return {
       timeInSeconds: 0,
       stopwatch: 0
-    }
-  },
-  computed: {
-    timeSpent(): string {
-      return new Date(this.timeInSeconds * 1000).toISOString().substr(11, 8);
     }
   },
   methods: {
