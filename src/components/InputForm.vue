@@ -8,10 +8,11 @@
         <input type="text"
                class="input"
                placeholder="Which task you want to star?"
+               v-model="description"
         />
       </div>
       <div class="column">
-        <StartStopTimer />
+        <StartStopTimer @toTimerFinish="finishTask"/>
       </div>
     </div>
   </div>
@@ -25,6 +26,18 @@ export default defineComponent({
   name: 'InputForm',
   components: {
     StartStopTimer
+  },
+  data() {
+    return {
+      description: '',
+    }
+  },
+  methods: {
+    finishTask(timeSpent: number) : void {
+      console.log(timeSpent);
+      console.log(this.description);
+      this.description = '';
+    }
   }
 });
 </script>
