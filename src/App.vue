@@ -1,9 +1,9 @@
 <template>
-  <main class="columns is-gapless is-multiline">
+  <main class="columns is-gapless is-multiline dark-mode">
     <div class="column is-one-quarter">
       <SideBar />
     </div>
-    <div class="column is-three-quarter">
+    <div class="column is-three-quarter content">
       <InputForm @toSaveTask="saveTask"/>
       <div class="tasks-list">
         <TasksList v-for="(task, index) in tasks" :key="index" :task="task"/>
@@ -52,5 +52,16 @@ export default defineComponent({
 <style>
 .tasks-list {
   padding: 1.25rem;
+}
+main {
+  --bg-primary: #fff;
+  --text-primary: #000;
+}
+main.dark-mode {
+  --bg-primary: #2b2d42;
+  --text-primary: #ddd;
+}
+.content {
+  background-color: var(--bg-primary);
 }
 </style>
