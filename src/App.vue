@@ -1,7 +1,7 @@
 <template>
-  <main class="columns is-gapless is-multiline dark-mode">
+  <main class="columns is-gapless is-multiline" :class="{ 'dark-mode': isDarkModeON }">
     <div class="column is-one-quarter">
-      <SideBar />
+      <SideBar @toChangedTheme="changeTheme" />
     </div>
     <div class="column is-three-quarter content">
       <InputForm @toSaveTask="saveTask"/>
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent } from 'vue'
 import SideBar from '@/components/SideBar.vue'
 import InputForm from '@/components/InputForm.vue'
 import TasksList from '@/components/TasksList.vue'
@@ -34,16 +34,20 @@ export default defineComponent({
   data() {
     return {
       tasks: [] as ITask[],
+      isDarkModeON: false,
     }
   },
   computed: {
     isTasksListEmpty() : boolean {
-      return this.tasks.length === 0
+      return this.tasks.length === 0;
     },
   },
   methods: {
-    saveTask(task: ITask) {
+    saveTask(task: ITask) : void {
       this.tasks.push(task);
+    },
+    changeTheme(isDarkModeON: boolean) : void {
+      this.isDarkModeON = !this.isDarkModeON;
     },
   },
 });
