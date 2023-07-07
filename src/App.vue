@@ -7,6 +7,9 @@
       <InputForm @toSaveTask="saveTask"/>
       <div class="tasks-list">
         <TasksList v-for="(task, index) in tasks" :key="index" :task="task"/>
+        <TaskBox v-if="isTasksListEmpty">
+          You have not been so productive today :(
+        </TaskBox>
       </div>
     </div>
   </main>
@@ -17,11 +20,13 @@ import { defineComponent } from 'vue';
 import SideBar from '@/components/SideBar.vue'
 import InputForm from '@/components/InputForm.vue'
 import TasksList from '@/components/TasksList.vue'
+import TaskBox from '@/components/TaskBox.vue'
 import ITask from '@/interfaces/ITask'
 
 export default defineComponent({
   name: 'App',
   components: {
+    TaskBox,
     TasksList,
     InputForm,
     SideBar
@@ -31,10 +36,15 @@ export default defineComponent({
       tasks: [] as ITask[],
     }
   },
+  computed: {
+    isTasksListEmpty() : boolean {
+      return this.tasks.length === 0
+    },
+  },
   methods: {
     saveTask(task: ITask) {
       this.tasks.push(task);
-    }
+    },
   },
 });
 </script>
