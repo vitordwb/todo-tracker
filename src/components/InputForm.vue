@@ -24,6 +24,7 @@ import StartStopTimer from '@/components/StartStopTimer.vue'
 
 export default defineComponent({
   name: 'InputForm',
+  emits: ['toSaveTask'],
   components: {
     StartStopTimer
   },
@@ -34,10 +35,12 @@ export default defineComponent({
   },
   methods: {
     finishTask(timeSpent: number) : void {
-      console.log(timeSpent);
-      console.log(this.description);
+      this.$emit('toSaveTask', {
+        durationInSeconds: timeSpent,
+        description: this.description
+      })
       this.description = '';
     }
-  }
+  },
 });
 </script>
