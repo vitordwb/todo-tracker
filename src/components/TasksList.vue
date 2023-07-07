@@ -2,7 +2,7 @@
   <div class="box has-text-weight-bold">
     <div class="columns">
       <div class="column is-7">
-        {{ task.description }}
+        {{ task.description || 'Task with no description' }}
       </div>
       <div class="column">
         <StopwatchTimer :timeInSeconds="task.durationInSeconds"/>
