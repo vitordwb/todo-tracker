@@ -1,5 +1,5 @@
 <template>
-  <main class="columns is-gapless is-multiline" :class="{ 'dark-mode': isDarkModeON }">
+  <main class="columns is-gapless is-multiline" :class="{ 'dark-mode': isDarkModeOn }">
     <div class="column is-one-quarter">
       <SideBar @toChangedTheme="changeTheme" />
     </div>
@@ -34,7 +34,7 @@ export default defineComponent({
   data() {
     return {
       tasks: [] as ITask[],
-      isDarkModeON: false,
+      isDarkModeOn: false,
     }
   },
   computed: {
@@ -46,8 +46,8 @@ export default defineComponent({
     saveTask(task: ITask) : void {
       this.tasks.push(task);
     },
-    changeTheme(isDarkModeON: boolean) : void {
-      this.isDarkModeON = !this.isDarkModeON;
+    changeTheme(isDarkModeOn: boolean) : void {
+      this.isDarkModeOn = !this.isDarkModeOn;
     },
   },
 });
